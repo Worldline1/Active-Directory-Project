@@ -12,4 +12,4 @@ Windows Server 2022
 Windows 10 (TARGET-PC)
 
 Kali Linux (Attacking Machine)
-
+# Approach
