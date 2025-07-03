@@ -1,6 +1,5 @@
 title: Active Directory Project
-description: In this project, we immitate the scenario of an entreprise hosting their splunk server for the cybersecurity team on a ubuntu server environment. The goal of this project 
-was to
+description: In this project, we immitate the scenario of an entreprise hosting their splunk server for the cybersecurity team on a ubuntu server environment. The goal of this project
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-hacker
