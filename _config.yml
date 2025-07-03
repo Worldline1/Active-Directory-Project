@@ -1,7 +1,7 @@
 title: Active Directory Project
 description: In this project, we simulate the scenario in which an enterprise hosts its Splunk server for the cybersecurity team in an Ubuntu server environment.
-The aim is to analyse data forwarded from various computers (via the Splunk Universal Forwarder) that have joined the enterprise's Active Directory. You can download or
-view the repository using the buttons below.
+             The aim is to analyse data forwarded from various computers (via the Splunk Universal Forwarder) that have joined the enterprise's Active Directory. You can download or
+             view the repository using the buttons below.
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-hacker
