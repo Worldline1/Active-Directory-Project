@@ -178,3 +178,46 @@ sudo ./splunk enable boot-start -user splunk
 Splunk Enterprise is now installed and ready to receive data. The next step is to configure logging on the Windows machines using Sysmon and the Splunk Universal Forwarder.
 
 
+## 🪟 Windows 10 Configuration and Splunk Universal Forwarder Installation
+
+### 1. Rename PC and Configure Static IP
+
+The target Windows 10 machine is renamed to **TARGET-PC** and configured with a static IP address to ensure consistent network communication within the lab.
+
+**Steps:**
+
+- In the Windows search bar, type **Network status** and open it.
+- Click **Change adapter options**.
+- Right-click the active network adapter and select **Properties**.
+- Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
+- Choose **Use the following IP address** and enter:
+
+  - **IP address:** `192.168.10.100`
+  - **Subnet mask:** `255.255.255.0`
+  - **Default gateway:** `192.168.10.1`
+
+- Under **Use the following DNS server addresses**, enter:
+
+  - **Preferred DNS server:** `8.8.8.8`
+  - **Alternate DNS server:** *(leave blank)*
+
+Click **OK** to save the settings.
+
+---
+
+### 2. Download and Install Splunk Universal Forwarder
+
+Next, install the Splunk Universal Forwarder (UF) on the Windows 10 machine to forward logs to the Splunk server.
+
+- Visit [splunk.com → Products → Free Trials & Downloads](https://www.splunk.com/en_us/download/universal-forwarder.html).
+- Select **Splunk Universal Forwarder**.
+- Choose the appropriate Windows installer:
+
+  - **Windows 10 x64** for 64-bit machines
+  - **Windows 10 x86** for 32-bit machines
+
+Download the installer and proceed with installation.
+
+---
+
+*The next step is to configure Sysmon and the Universal Forwarder to collect and forward relevant logs to the Splunk server.*
