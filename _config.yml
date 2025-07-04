@@ -1,7 +1,9 @@
 title: Active Directory Project
-description: In this project, we simulate the scenario in which an enterprise hosts its Splunk server for the cybersecurity team in an Ubuntu server environment.
-             The aim is to analyse data forwarded from various computers (via the Splunk Universal Forwarder) that have joined the enterprise's Active Directory. You can download or
-             view the repository using the buttons below.
+description: In this project, a virtualized enterprise network is simulated using four machines: a Splunk SIEM server on Ubuntu, a domain controller
+             on Windows Server 2022, a domain-joined Windows 10 endpoint, and a Kali Linux attack machine. The goal is to monitor and analyze security
+             events across the environment using Splunk Enterprise, Sysmon, and the Splunk Universal Forwarder. Atomic Red Team is used to simulate
+             adversary techniques on the Windows endpoint, helping identify detection gaps and improve visibility. This setup demonstrates a
+             realistic Active Directory environment focused on log collection, attack simulation, and detection engineering.
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-hacker
