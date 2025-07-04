@@ -19,7 +19,7 @@ Simulated attacks are carried out via **Remote Desktop Protocol (RDP)** and **At
 
 ![AD Diagram](AD-Diagram.png)
 
-## 🖥️ Environments & Configurations
+# 🖥️ Environments & Configurations
 
 - **Ubuntu Server 24.04.2** – Hosts Splunk Enterprise for log collection and analysis.
 
@@ -41,7 +41,7 @@ Below is a summary table of the machines, their roles, and assigned IP addresses
 | Windows 10 Pro         | Target PC                | 192.168.10.100     |
 | Kali Linux             | Attacker                 | 192.168.10.250     |
 
-## ⚙️ Lab Setup
+# ⚙️ Lab Setup
 
 The virtual environment was created using [VirtualBox](https://www.virtualbox.org/), where four separate virtual machines were installed using official ISO images:
 
@@ -50,26 +50,26 @@ The virtual environment was created using [VirtualBox](https://www.virtualbox.or
 - **Windows Server 2022** – [Download](https://www.microsoft.com/fr-fr/evalcenter/download-windows-server-2022)
 - **Ubuntu Server 24.04.2** – [Download](https://ubuntu.com/download/server)
 
-After installation, a **custom NAT network** named `AD Project` was created using VirtualBox’s network management settings. The network uses the subnet `192.168.10.0/24`. All virtual machines were connected to this isolated NAT network to allow internal communication while remaining disconnected from the external internet.
+After installation, a **custom NAT network** named `AD Project` was created using VirtualBox’s network management settings. The network uses the subnet `192.168.10.0/24`. All virtual machines were connected to this isolated NAT network to allow internal communication.
 
 This setup replicates a small enterprise environment for controlled simulation of attacks, event logging, and centralized analysis.
 
-## ⚙️ Ubuntu Server Splunk Setup
+# ⚙️ Ubuntu Server Splunk Setup
 
 After installing the Ubuntu Server VM, the first step is to assign a **static IP address** to prevent the server from receiving a different IP on every DHCP lease renewal. This ensures consistent connectivity within the lab network.
 
-To verify the current IP address, run:
+To verify the current IP address, let's run:
 
 ```bash
 # bash
 ip a
 ```
-Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file (/etc/netplan/00-installer-config.yaml) might not exist by default. If missing, create it manually:
+Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file (/etc/netplan/00-installer-config.yaml) might not exist by default. If it's missing, it will be created manually using the command:
 ```bash
 # bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
-Paste the following configuration to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
+Now let's paste the following configuration to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
 ```yaml
 # 00-installer-config.yaml
 # yaml
@@ -85,18 +85,18 @@ network:
           via: 192.168.10.1            # Default gateway
   version: 2
 ```
-Save the file and apply the changes with:
+We save the file and apply the changes with:
 ```bash
 # bash
 sudo netplan apply
 ```
 The server should now use the static IP 192.168.10.10 on the NAT network subnet. We can check using `ip a`
 
-## 🟧 Splunk Enterprise Installation (Ubuntu Server)
+# 🟧 Splunk Enterprise Installation (Ubuntu Server)
 
-To begin collecting and analyzing logs, Splunk Enterprise must be installed on the Ubuntu Server VM.
+To begin collecting and analyzing logs, Splunk Enterprise must be installed on the Ubuntu Server.
 
-### 1. Download Splunk
+## 1. Download Splunk
 
 From the host machine:
 
@@ -109,9 +109,9 @@ Transfer the downloaded `.deb` file to the Ubuntu Server. One way to do this is 
 
 ---
 
-### 2. Optional: Set Up Shared Folder (for transferring Splunk installer)
+## 2. Optional: Set Up Shared Folder (for transferring Splunk installer)
 
-> ⚠️ This step is optional and only needed if using a shared folder to move the `.deb` file. In a real-world server setup, files would be transferred via network protocols instead.
+> ⚠️ This step is optional and only needed if using a Virtual Machine to move the `.deb` file from the host to the VM. In a real-world server setup, files would be transferred via other methods.
 
 Install the VirtualBox Guest Additions ISO:
 
@@ -140,7 +140,7 @@ mkdir share
 sudo mount -t vboxsf -o uid=1000,gid=1000 <your-shared-folder-name> share/
 cd share
 ```
-3. Install Splunk
+## 3. Install Splunk
 
 Navigate to the shared folder and run:
 ```bash
@@ -170,9 +170,9 @@ Exit the Splunk user shell:
 # bash
 exit
 ```
-4. Enable Splunk to Start on Boot
+## 4. Enable Splunk to Start on Boot
 
-To ensure Splunk runs automatically on server startup:
+To ensure Splunk runs automatically on server startup, we use the following command:
 ```bash
 # bash
 sudo ./splunk enable boot-start -user splunk
@@ -180,9 +180,9 @@ sudo ./splunk enable boot-start -user splunk
 Splunk Enterprise is now installed and ready to receive data. The next step is to configure logging on the Windows machines using Sysmon and the Splunk Universal Forwarder.
 
 
-## 🪟 Windows 10 Configuration and Splunk Universal Forwarder Installation
+# 🪟 Windows 10 Configuration and Splunk Universal Forwarder Installation
 
-### 1. Rename PC and Configure Static IP
+## 1. Rename PC and Configure Static IP
 
 The target Windows 10 machine is renamed to **TARGET-PC** and configured with a static IP address to ensure consistent network communication within the lab.
 
