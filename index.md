@@ -3,6 +3,7 @@ layout: default
 ---
 
 # Introduction
+![AD Diagram](https://imgur.com/a/O0E5jyJ)
 This project simulates a small enterprise network environment designed for cybersecurity monitoring and detection testing.
 
 The lab consists of four virtual machines connected through a custom NAT network:
