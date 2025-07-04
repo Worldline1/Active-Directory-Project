@@ -37,6 +37,18 @@ All machines are connected through a custom NAT network, allowing isolated commu
 | Windows 10     | Target PC                | Windows 10 Pro        | 192.168.10.100     |
 | Kali Linux     | Attacker                 | Debian-based Linux    | 192.168.10.250     |
 
+## ⚙️ Lab Setup
+
+The virtual environment was created using [VirtualBox](https://www.virtualbox.org/), where four separate virtual machines were installed using official ISO images:
+
+- **Windows 10 Pro** – [Download](https://www.microsoft.com/fr-fr/software-download/windows10)
+- **Kali Linux (Rolling Release)** – [Download](https://www.kali.org/get-kali/#kali-platforms)
+- **Windows Server 2022** – [Download](https://www.microsoft.com/fr-fr/evalcenter/download-windows-server-2022)
+- **Ubuntu Server 24.04.2** – [Download](https://ubuntu.com/download/server)
+
+After installation, a **custom NAT network** named `AD Project` was created using VirtualBox’s network management settings. All virtual machines were connected to this isolated NAT network to allow internal communication while remaining disconnected from the external internet.
+
+This setup replicates a small enterprise environment for controlled simulation of attacks, event logging, and centralized analysis.
 
 
 
