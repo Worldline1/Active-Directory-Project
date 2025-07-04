@@ -209,7 +209,7 @@ Click **OK** to save the settings.
 
 Next, install the Splunk Universal Forwarder (UF) on the Windows 10 machine to forward logs to the Splunk server.
 
-- Visit [splunk.com → Products → Free Trials & Downloads](https://www.splunk.com/en_us/download/universal-forwarder.html).
+- Visit [splunk.com → Products → Free Trials & Downloads](https://www.splunk.com/en_us/download.html).
 - Select **Splunk Universal Forwarder**.
 - Choose the appropriate Windows installer:
 
