@@ -163,5 +163,18 @@ Start Splunk:
 > 
 > Set the admin username and password when prompted (save these credentials)
 
+Exit the Splunk user shell:
+```
+# bash
+exit
+```
+4. Enable Splunk to Start on Boot
+
+To ensure Splunk runs automatically on server startup:
+```
+# bash
+sudo ./splunk enable boot-start -user splunk
+```
+Splunk Enterprise is now installed and ready to receive data. The next step is to configure logging on the Windows machines using Sysmon and the Splunk Universal Forwarder.
 
 
