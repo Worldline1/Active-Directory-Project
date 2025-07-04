@@ -42,7 +42,7 @@ All machines are connected through a custom NAT network, allowing isolated commu
 The virtual environment was created using [VirtualBox](https://www.virtualbox.org/), where four separate virtual machines were installed using official ISO images:
 
 - **Windows 10 Pro** – [Download](https://www.microsoft.com/fr-fr/software-download/windows10)
-- **Kali Linux (Rolling Release)** – [Download](https://www.kali.org/get-kali/#kali-platforms)
+- **Kali Linux** – [Download](https://www.kali.org/get-kali/#kali-platforms)
 - **Windows Server 2022** – [Download](https://www.microsoft.com/fr-fr/evalcenter/download-windows-server-2022)
 - **Ubuntu Server 24.04.2** – [Download](https://ubuntu.com/download/server)
 
