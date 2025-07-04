@@ -19,6 +19,8 @@ Simulated attacks are carried out via **Remote Desktop Protocol (RDP)** and **At
 
 ![AD Diagram](AD-Diagram.png)
 
+---
+
 # 🖥️ Environments & Configurations
 
 - **Ubuntu Server 24.04.2** – Hosts Splunk Enterprise for log collection and analysis.
@@ -41,6 +43,8 @@ Below is a summary table of the machines, their roles, and assigned IP addresses
 | Windows 10 Pro         | Target PC                | 192.168.10.100     |
 | Kali Linux             | Attacker                 | 192.168.10.250     |
 
+---
+
 # ⚙️ Lab Setup
 
 The virtual environment was created using [VirtualBox](https://www.virtualbox.org/), where four separate virtual machines were installed using official ISO images:
@@ -53,6 +57,8 @@ The virtual environment was created using [VirtualBox](https://www.virtualbox.or
 After installation, a **custom NAT network** named `AD Project` was created using VirtualBox’s network management settings. The network uses the subnet `192.168.10.0/24`. All virtual machines were connected to this isolated NAT network to allow internal communication.
 
 This setup replicates a small enterprise environment for controlled simulation of attacks, event logging, and centralized analysis.
+
+---
 
 # ⚙️ Ubuntu Server Splunk Setup
 
@@ -92,6 +98,8 @@ sudo netplan apply
 ```
 The server should now use the static IP 192.168.10.10 on the NAT network. We can check using `ip a`
 
+---
+
 # 🟧 Splunk Enterprise Installation (Ubuntu Server)
 
 To begin collecting and analyzing logs, Splunk Enterprise must be installed on the Ubuntu Server.
@@ -107,11 +115,9 @@ From the host machine:
 
 Transfer the downloaded `.deb` file to the Ubuntu Server. One way to do this is by using VirtualBox’s **shared folder** functionality.
 
----
-
 ## 2. Optional: Set Up Shared Folder (for transferring Splunk installer)
 
-> ⚠️ This step is optional and only needed if using a Virtual Machine to move the `.deb` file from the host to the VM. In a real-world server setup, files would be transferred via other methods.
+> ⚠️ This step is optional and only needed if using a Virtual Machine as it uses VirtualBox addons to move the `.deb` file from the host to the VM. In a real-world server setup, files would be transferred via other methods.
 
 Install the VirtualBox Guest Additions ISO:
 
@@ -170,6 +176,7 @@ Exit the Splunk user shell:
 # bash
 exit
 ```
+
 ## 4. Enable Splunk to Start on Boot
 
 To ensure Splunk runs automatically on server startup, we use the following command:
@@ -179,6 +186,7 @@ sudo ./splunk enable boot-start -user splunk
 ```
 Splunk Enterprise is now installed and ready to receive data. The next step is to configure logging on the Windows machines using Sysmon and the Splunk Universal Forwarder.
 
+---
 
 # 🪟 Windows 10 Configuration and Splunk Universal Forwarder Installation
 
@@ -205,9 +213,7 @@ The target Windows 10 machine is renamed to **TARGET-PC** and configured with a 
 
 Click **OK** to save the settings.
 
----
-
-### 2. Download and Install Splunk Universal Forwarder
+## 2. Download and Install Splunk Universal Forwarder
 
 Next, install the Splunk Universal Forwarder (UF) on the Windows 10 machine to forward logs to the Splunk server.
 
@@ -222,6 +228,5 @@ Download the installer and proceed with installation.
 
 ![AD Diagram](/screenshots/splunk.png)
 
----
 
 *The next step is to configure Sysmon and the Universal Forwarder to collect and forward relevant logs to the Splunk server.*
