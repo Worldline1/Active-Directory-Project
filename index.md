@@ -113,4 +113,12 @@ Transfer the downloaded `.deb` file to the Ubuntu Server. One way to do this is 
 Install the VirtualBox Guest Additions ISO:
 
 ```bash
+# bash
 sudo apt-get install virtualbox-guest-additions-iso
+```
+In the VirtualBox menu:
+Go to Devices → Shared Folders → Shared Folder Settings
+
+1.  Click the blue icon with a green plus ➕
+2.  Select the folder containing your Splunk .deb file
+3.  Enable: ✅ Read-only, ✅ Auto-mount, ✅ Make permanent
