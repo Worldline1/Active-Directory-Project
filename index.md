@@ -217,6 +217,7 @@ Next, install the Splunk Universal Forwarder (UF) on the Windows 10 machine to f
   - **Windows 10 x86** for 32-bit machines
 
 Download the installer and proceed with installation.
+
 ![AD Diagram](/screenshots/splunk.png)
 
 ---
