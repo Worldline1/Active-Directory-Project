@@ -32,12 +32,12 @@ All machines are connected through a custom NAT network, allowing isolated commu
 
 ## 🖥️ Configurations
 
-| Machine        | Role                     | OS                     | IP Address         |
-|----------------|--------------------------|------------------------|--------------------|
-| Ubuntu Server  | Splunk Enterprise (SIEM) | Ubuntu Server 24.04.2 | 192.168.10.10      |
-| Windows Server | Active Directory (DC)    | Windows Server 2022   | 192.168.10.7       |
-| Windows 10     | Target PC                | Windows 10 Pro        | 192.168.10.100     |
-| Kali Linux     | Attacker                 | Debian-based Linux    | 192.168.10.250     |
+| Machine                | Role                     | IP Address         |
+|------------------------|--------------------------|--------------------|
+| Ubuntu Server 24.04.2  | Splunk Enterprise (SIEM) | 192.168.10.10      |
+| Windows Server  2022   | Active Directory (DC)    | 192.168.10.7       |
+| Windows 10 Pro         | Target PC                | 192.168.10.100     |
+| Kali Linux             | Attacker                 | 192.168.10.250     |
 
 ## ⚙️ Lab Setup
 
