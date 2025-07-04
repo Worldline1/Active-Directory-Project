@@ -122,3 +122,45 @@ Go to Devices → Shared Folders → Shared Folder Settings
 1.  Click the blue icon with a green plus ➕
 2.  Select the folder containing your Splunk .deb file
 3.  Enable: ✅ Read-only, ✅ Auto-mount, ✅ Make permanent
+
+Back in the terminal:
+```
+# bash
+sudo apt-get install virtualbox-guest-utils
+sudo reboot
+```
+After rebooting:
+```
+# bash
+sudo adduser <your_username> vboxsf
+mkdir share
+sudo mount -t vboxsf -o uid=1000,gid=1000 <your-shared-folder-name> share/
+cd share
+```
+3. Install Splunk
+
+Navigate to the shared folder and run:
+```
+# bash
+sudo dpkg -i splunk-*.deb
+```
+Then switch to the Splunk directory:
+```
+# bash
+cd /opt/splunk
+sudo -u splunk bash
+cd bin
+```
+Start Splunk:
+```
+# bash
+./splunk start
+```
+> Use Enter or Space to scroll through the license agreement
+> 
+> Accept with Y
+> 
+> Set the admin username and password when prompted (save these credentials)
+
+
+
