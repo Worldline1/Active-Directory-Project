@@ -90,7 +90,7 @@ We save the file and apply the changes with:
 # bash
 sudo netplan apply
 ```
-The server should now use the static IP 192.168.10.10 on the NAT network subnet. We can check using `ip a`
+The server should now use the static IP 192.168.10.10 on the NAT network. We can check using `ip a`
 
 # 🟧 Splunk Enterprise Installation (Ubuntu Server)
 
