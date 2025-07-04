@@ -58,14 +58,18 @@ After installing the Ubuntu Server VM, the first step is to assign a **static IP
 To verify the current IP address, run:
 
 ```bash
+# bash
 ip a
 ```
 Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file (/etc/netplan/00-installer-config.yaml) might not exist by default. If missing, create it manually:
 ```bash
+# bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
 Paste the following configuration to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
 ```yaml
+# 00-installer-config.yaml
+# yaml
 network:
   ethernets:
     enp0s3:
@@ -80,6 +84,7 @@ network:
 ```
 Save the file and apply the changes with:
 ```bash
+# bash
 sudo netplan apply
 ```
 The server should now use the static IP 192.168.10.10 on the NAT network subnet. We can check using `ip a`
