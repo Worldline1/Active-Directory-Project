@@ -125,13 +125,13 @@ Go to Devices → Shared Folders → Shared Folder Settings
 3.  Enable: ✅ Read-only, ✅ Auto-mount, ✅ Make permanent
 
 Back in the terminal:
-```
+```bash
 # bash
 sudo apt-get install virtualbox-guest-utils
 sudo reboot
 ```
 After rebooting:
-```
+```bash
 # bash
 sudo adduser <your_username> vboxsf
 mkdir share
@@ -141,19 +141,19 @@ cd share
 3. Install Splunk
 
 Navigate to the shared folder and run:
-```
+```bash
 # bash
 sudo dpkg -i splunk-*.deb
 ```
 Then switch to the Splunk directory:
-```
+```bash
 # bash
 cd /opt/splunk
 sudo -u splunk bash
 cd bin
 ```
 Start Splunk:
-```
+```bash
 # bash
 ./splunk start
 ```
@@ -164,14 +164,14 @@ Start Splunk:
 > Set the admin username and password when prompted (save these credentials)
 
 Exit the Splunk user shell:
-```
+```bash
 # bash
 exit
 ```
 4. Enable Splunk to Start on Boot
 
 To ensure Splunk runs automatically on server startup:
-```
+```bash
 # bash
 sudo ./splunk enable boot-start -user splunk
 ```
