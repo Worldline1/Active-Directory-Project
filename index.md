@@ -50,7 +50,36 @@ After installation, a **custom NAT network** named `AD Project` was created usin
 
 This setup replicates a small enterprise environment for controlled simulation of attacks, event logging, and centralized analysis.
 
+## ⚙️ Ubuntu Server Splunk Setup
 
+After installing the Ubuntu Server VM, the first step is to assign a **static IP address** to prevent the server from receiving a different IP on every DHCP lease renewal. This ensures consistent connectivity within the lab network.
 
+To verify the current IP address, run:
 
-# Approach
+```bash
+ip a
+```
+Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file (/etc/netplan/00-installer-config.yaml) might not exist by default. If missing, create it manually:
+```bash
+sudo nano /etc/netplan/00-installer-config.yaml
+```
+Paste the following configuration to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
+```yaml
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.10.10/24]   # Static IP address
+      nameservers:
+        addresses: [8.8.8.8]           # DNS server (Google DNS)
+      routes:
+        - to: default
+          via: 192.168.10.1            # Default gateway
+  version: 2
+```
+Save the file and apply the changes with:
+```bash
+sudo netplan apply
+```
+The server should now use the static IP 192.168.10.10 on the NAT network subnet. We can check using `ip a`
+
