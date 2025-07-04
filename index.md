@@ -89,3 +89,28 @@ sudo netplan apply
 ```
 The server should now use the static IP 192.168.10.10 on the NAT network subnet. We can check using `ip a`
 
+## 🟧 Splunk Enterprise Installation (Ubuntu Server)
+
+To begin collecting and analyzing logs, Splunk Enterprise must be installed on the Ubuntu Server VM.
+
+### 1. Download Splunk
+
+From the host machine:
+
+1. Navigate to [splunk.com](https://www.splunk.com) and sign in or create a new account.
+2. Go to **Products → Free Trials and Downloads**
+3. Select **Splunk Enterprise** and click **Get My Free Trial**
+4. Choose the **Linux** platform and download the `.deb` package (Ubuntu is Debian-based)
+
+Transfer the downloaded `.deb` file to the Ubuntu Server. One way to do this is by using VirtualBox’s **shared folder** functionality.
+
+---
+
+### 2. Optional: Set Up Shared Folder (for transferring Splunk installer)
+
+> ⚠️ This step is optional and only needed if using a shared folder to move the `.deb` file. In a real-world server setup, files would be transferred via network protocols instead.
+
+Install the VirtualBox Guest Additions ISO:
+
+```bash
+sudo apt-get install virtualbox-guest-additions-iso
