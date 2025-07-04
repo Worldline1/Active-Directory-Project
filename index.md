@@ -46,9 +46,10 @@ The virtual environment was created using [VirtualBox](https://www.virtualbox.or
 - **Windows Server 2022** – [Download](https://www.microsoft.com/fr-fr/evalcenter/download-windows-server-2022)
 - **Ubuntu Server 24.04.2** – [Download](https://ubuntu.com/download/server)
 
-After installation, a **custom NAT network** named `AD Project` was created using VirtualBox’s network management settings. All virtual machines were connected to this isolated NAT network to allow internal communication while remaining disconnected from the external internet.
+After installation, a **custom NAT network** named `AD Project` was created using VirtualBox’s network management settings. The network uses the subnet `192.168.10.0/24`. All virtual machines were connected to this isolated NAT network to allow internal communication while remaining disconnected from the external internet.
 
 This setup replicates a small enterprise environment for controlled simulation of attacks, event logging, and centralized analysis.
+
 
 
 
