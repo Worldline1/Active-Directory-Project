@@ -312,9 +312,13 @@ Now navigate to settings -> forwarding and receiving, click on Configure Receivi
 1.The configurations should be done by now. To test them though lets go to Apps > Search & reporting
 2. on the search bar type `index="endpoint"` and hit search
 
-If all steps before done correctly we hould be able to see some events like the next picture
+If all steps before done correctly we should be able to see some events like the ones in the next screenshot.
 
-![image](/screeenshots/endpointsearch.png)
+![image](/screenshots/endpointsearch.png)
 
+# Windows Server 2022
 
+Similar to the windows 10 machine, sysmon and splunk universal forwarder will also be installed on this machine.
+
+We wont go into details of the active directory setup. you cansee how to make on though by clicking this [link](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-)
 
