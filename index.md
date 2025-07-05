@@ -18,7 +18,7 @@ Simulated attacks are carried out via **Remote Desktop Protocol (RDP)** and **At
 
 ---
 
-# 🖥️ Environments & Configurations
+# Environments & Configurations
 
 - **Ubuntu Server 24.04.2** – Hosts Splunk Enterprise for log collection and analysis.
 
@@ -92,7 +92,7 @@ The server should now use the static IP 192.168.10.10 on the NAT network. We can
 
 ---
 
-# 🟧 Splunk Enterprise Installation (Ubuntu Server)
+# Splunk Enterprise Installation (Ubuntu Server)
 
 To begin collecting and analyzing logs, Splunk Enterprise must be installed on the Ubuntu Server.
 
@@ -170,7 +170,7 @@ Splunk Enterprise is now installed and ready to receive data. The next step is t
 
 ---
 
-# 🪟 Windows 10 Configuration and Splunk Universal Forwarder Installation
+# Windows 10 Configuration and Splunk Universal Forwarder Installation
 
 ## 1. Rename PC and Configure Static IP
 
@@ -296,3 +296,6 @@ net stop splunkforwarder && net start splunkforwarder
 
 This will stop and start the service, applying the new log forwarding configuration.
 
+Now that our configuration are all set lets hop into a browser and access our splunk server located at `192.168.10.10:8000`
+
+Input your creds and an interface like this should show up: 
