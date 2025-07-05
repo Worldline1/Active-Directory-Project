@@ -42,7 +42,7 @@ Below is a summary table of the machines, their roles, and assigned IP addresses
 
 ---
 
-# ⚙️ Lab Setup
+# Lab Setup
 
 The virtual environment was created using [VirtualBox](https://www.virtualbox.org/), where four separate virtual machines were installed using official ISO images:
 
@@ -57,7 +57,7 @@ This setup replicates a small enterprise environment for controlled simulation o
 
 ---
 
-# ⚙️ Ubuntu Server Splunk Setup
+# Ubuntu Server Splunk Setup
 
 After installing the Ubuntu Server VM, the first step is to assign a **static IP address** to prevent the server from receiving a different IP on every DHCP lease renewal. This ensures consistent connectivity within the lab network.
 
@@ -70,7 +70,7 @@ Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan 
 ```bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
-Now let's paste the following configuration to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
+Now let's paste the following configuration to `00-installer-config.yaml` to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
 ```yaml
 network:
   ethernets:
@@ -151,11 +151,9 @@ Start Splunk:
 ```bash
 ./splunk start
 ```
-> Use Enter or Space to scroll through the license agreement
-> 
-> Accept with Y
-> 
-> Set the admin username and password when prompted (save these credentials)
+- Use Enter or Space to scroll through the license agreement
+- Accept with Y
+- Set the admin username and password when prompted (save these credentials)
 
 Exit the Splunk user shell:
 ```bash
@@ -208,9 +206,54 @@ Next, install the Splunk Universal Forwarder (UF) on the Windows 10 machine to f
   - **Windows 10 x64** for 64-bit machines
   - **Windows 10 x86** for 32-bit machines
 
-Download the installer and proceed with installation.
+After downloading the Splunk Universal Forwarder installer, proceed with the following steps:
 
-![AD Diagram](/screenshots/splunk.png)
+1. **Launch the installer** and follow the prompts.
+2. **Accept the license agreement**, and click **Next**.
+3. When prompted for credentials:
+   - Set the username to `admin`.
+   - Leave **"Generate random password"** checked.
+   - Click **Next**.
+4. On the **Deployment Server** screen, leave the field **blank** and click **Next**.
+5. On the **Receiving Indexer** screen:
+   - Enter the **Splunk server IP**: `192.168.10.10`
+   - Enter the **port**: `9997`
+   - Click **Next**
+6. Click **Install** to complete the setup.
+
+Once the Universal Forwarder is installed, the system is ready to begin sending logs to Splunk.
+
+Now that Splunk Universal Forwarder is installed let's install Sysmon
+
+## Installing Sysmon
+
+**Sysmon (System Monitor)** is a Windows system service and device driver that logs system activity to the Windows Event Log. It's part of the Microsoft Sysinternals Suite and is widely used for advanced event logging.
+
+We’ll install it and configure it using **Olaf Hartong’s `sysmonconfig.xml`**, a community-trusted configuration.
+
+### Step 1: Download Sysmon
+
+1. Visit the official [Microsoft Sysinternals Sysmon page](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
+2. Download **Sysmon for Windows**
+3. Extract the zip contents
+
+### Step 2: Download Olaf’s Sysmon Config
+
+1. Visit Olaf’s GitHub repo: [https://github.com/olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)
+2. Download the `sysmonconfig.xml` file to the directory where Sysmon is downloaded.
+
+---
+
+### Step 3: Install and Configure Sysmon
+
+Open a **Powershell as Administrator** and navigate to the folder where `Sysmon64.exe` and `sysmonconfig.xml` are located.
+
+Then run:
+
+```cmd
+.\Sysmon64.exe -i sysmonconfig.xml
+```
 
 
-*The next step is to configure Sysmon and the Universal Forwarder to collect and forward relevant logs to the Splunk server.*
+
+
