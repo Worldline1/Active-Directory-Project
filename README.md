@@ -357,19 +357,15 @@ To begin using Atomic Red Team (ART), the official installation instructions can
 
 Otherwise, let's get straight to the simulation.
 
-Using the [MITRE ATT&CK Framework](https://attack.mitre.org/) we can find the Techniques id of an attack that we want to simulate
+The [MITRE ATT&CK Framework](https://attack.mitre.org/) provides a comprehensive catalog of adversary tactics and techniques, each identified by a unique technique ID. These technique IDs can be used to precisely specify and simulate particular attack behaviors in security testing and detection validation.
 
 ![image](/screenshots/mitreframework.png)
 
-
-For our lab lets choose a simple yet an interesting which is T1059.001. 
+For our lab, let's go for a simple yet interesting technique ID: **T1059.001**.
 > T1059.001 is a sub-technique under the Command and Scripting Interpreter category in the MITRE ATT&CK framework. It focuses on the abuse of PowerShell, a legitimate Windows tool commonly used by system administrators for automation and scripting. Attackers take advantage of PowerShell’s flexibility to execute commands, download and run payloads, or interact with system components — all while remaining stealthy and avoiding traditional antivirus detection.
 PowerShell-based attacks are especially dangerous in enterprise environments because they often don’t require additional tools or software to be effective. For this reason, monitoring PowerShell activity is a critical component of any modern detection strategy.
 
 Lets start a powershell session and run the following:
-```powershell
-
-
 ```powershell
 Invoke-AtomicTest T1059.001
 ```
