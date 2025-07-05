@@ -65,7 +65,7 @@ To verify the current IP address, let's run:
 ```bash
 ip a
 ```
-Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file (/etc/netplan/00-installer-config.yaml) might not exist by default. If it's missing, it will be created manually using the command:
+Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file `/etc/netplan/00-installer-config.yaml` might not exist by default. If it's missing, it will be created manually using the command:
 ```bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
