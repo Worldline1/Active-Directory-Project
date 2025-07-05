@@ -299,3 +299,5 @@ This will stop and start the service, applying the new log forwarding configurat
 Now that our configuration are all set lets hop into a browser and access our splunk server located at `192.168.10.10:8000`
 
 Input your creds and an interface like this should show up: 
+
+![SPLUNK-INT](/screenshots/splunk-interface.png)
