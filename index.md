@@ -301,3 +301,8 @@ Now that our configuration are all set lets hop into a browser and access our sp
 Input your creds and an interface like this should show up: 
 
 ![SPLUNK-INT](/screenshots/splunk-interface.png)
+
+Navigate to Settings -> Indexes and click on **New Index**
+
+We will name it `endpoint` according to the olaf's `inputs.conf` and click **Save**.
+
