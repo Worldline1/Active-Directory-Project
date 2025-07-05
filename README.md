@@ -370,7 +370,22 @@ Lets start a powershell session and run the following:
 Invoke-AtomicTest T1059.001
 ```
 
-Each simulation corresponds to a MITRE ATT&CK technique, helping validate detection coverage. All activity is logged via Sysmon and forwarded to Splunk for analysis.
+![image](/screenshots/invoketest.png)
+
+![image](/screenshots/invoketest2.png)
+
+
+
+lets get back to splunk andd see if anything related to powershell has occured using:
+```splunk
+index="endpoint" "bypass -noprofile"
+```
+![image](/screenshots/techniqueresultsplunk.png)
+
+As we see we can see the 
+
+
+
 
 You can search for relevant events using:
 
