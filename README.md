@@ -372,23 +372,18 @@ Invoke-AtomicTest T1059.001
 
 ![image](/screenshots/invoketest.png)
 
+Some of the techniques didn't work because Windows Defender detected them, but the following one seems to have done the trick:
+
 ![image](/screenshots/invoketest2.png)
 
+This one should've created a log. Let's get back to Splunk and see if we can find it using the following command:
 
-
-lets get back to splunk andd see if anything related to powershell has occured using:
 ```splunk
-index="endpoint" "bypass -noprofile"
+index="endpoint" pwershell bypass
 ```
+
 ![image](/screenshots/techniqueresultsplunk.png)
 
-As we see we can see the 
+As we can see, there are some logs relating to the simulated attack.
 
 
-
-
-You can search for relevant events using:
-
-```splunk
-index="endpoint" sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
-```
