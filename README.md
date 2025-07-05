@@ -379,7 +379,7 @@ Some of the techniques didn't work because Windows Defender detected them, but t
 This one should've created a log. Let's get back to Splunk and see if we can find it using the following command:
 
 ```splunk
-index="endpoint" pwershell bypass
+index="endpoint" powershell bypass
 ```
 
 ![image](/screenshots/techniqueresultsplunk.png)
