@@ -309,9 +309,9 @@ The configuration of Active Directory Domain Services (AD DS) is outside the sco
 
 ## Domain Join and User Setup
 
-On the Windows Server (ADDC), a new **Cybersecurity Department** was created to manage users within the domain `worldline.local`.
+On the Windows Server (ADDC), a **Cybersecurity Department** Organizational Unit was created to manage users within the domain `worldline.local`.
 
-Sample user added:
+Sample users added:
 - **Username:** `ataibi`, `ybouazzaoui`
 
 ![image](/screenshots/orgunit.png)
@@ -325,20 +325,24 @@ This enables centralized identity management and allows user activity to be moni
 
 ## Simulating an RDP Brute-Force Attack
 
-With RDP enabled on `TARGET-PC`, the Kali machine was used to simulate brute-force or unauthorized login attempts using:
+With RDP enabled on `TARGET-PC` (for testing purposes), the Kali machine was used to simulate brute-force attacks using `xfreerdp3`:
 
 ```bash
-xfreerdp3 /u:ataibi /p:randompassword /v:192.168.10.100
+xfreerdp3 /v:192.168.10.100 /u:ybouazzaoui /p:randompassword
 ```
+![image](/screenshots/kalicmd.png)
 
+As expected the authentication failed and this will usually lead to an unsuccessful authentication attempt and create a 4625 Windows Event ID.
 
+> Windows Security Log Event ID 4625: This is a useful event because it documents each and every failed attempt to logon to the local computer   regardless of logon type, location of the user or type of account. These failed attempts generate Windows Event ID 4625 (failed login).
 
-These failed attempts generate Windows Event ID 4625 (failed login).
+Let's take another look at Splunk and see if it found any unsuccessful attempts to log in.
 
-On Splunk:
+On Splunk's search bar:
 ```spl
-index="endpoint" ataibi
+index="endpoint" ybouazzaoui
 ```
+
 Apply a time filter of last 15 minutes. You should see failed login logs with details like source IP and timestamp, confirming Splunk's visibility into authentication events.
 
 ## Atomic Red Team
