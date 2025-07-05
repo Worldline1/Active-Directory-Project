@@ -276,7 +276,7 @@ This will stop and start the service, applying the new log forwarding configurat
 
 Now that everything is set up, let's go to a browser and access our Splunk server at 192.168.10.10:8000.
 
-After you have entered your details, the screen should look like this:
+After entering the credentials, the screen should look like this:
 
 ![image](/screenshots/splunk-interface.png)
 
@@ -286,11 +286,11 @@ We will name it `endpoint` as per Olaf's `inputs.conf` and click **Save**.
 
 ![image](/screenshots/endpointindex.png)
 
-To set up port forwarding, go to **Settings > Forwarding and Receiving**. Click on **Configure Receiving > New Receiving Port**. Then type **9997** and click **Save**.
+> To start receiving logs, a port forwarding shall be set up. To do this, we go to **Settings > Forwarding and Receiving**. Click on **Configure Receiving** and then **New Receiving Port**. Then type **9997** and click **Save**.
 
-1.The configurations should be done by now. To test them, let's go to the **Apps** menu and select **Search & Reporting**.
+    The configurations should be done by now. To test them, let's go to the **Apps** menu and select **Search & Reporting**.
 
-Type 'index="endpoint"' into the search bar and press the search icon.
+    Type 'index="endpoint"' into the search bar and press the search icon.
 
 If all the steps are done correctly, some events like the ones shown below will be displayed.
 
