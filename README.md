@@ -309,10 +309,12 @@ The configuration of Active Directory Domain Services (AD DS) is outside the sco
 
 ## Domain Join and User Setup
 
-On the Windows Server (ADDC), a new **Organizational Unit (OU)** was created to manage users within the domain `worldline.local`.
+On the Windows Server (ADDC), a new **Cybersecurity Department** was created to manage users within the domain `worldline.local`.
 
 Sample user added:
-- **Username:** `ataibi`
+- **Username:** `ataibi`, `ybouazzaoui`
+
+![image](/screenshots/orgunit.png)
 
 On the Windows 10 machine:
 - The PC was joined to the domain via:
