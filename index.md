@@ -320,5 +320,54 @@ If all steps before done correctly we should be able to see some events like the
 
 Similar to the windows 10 machine, sysmon and splunk universal forwarder will also be installed on this machine.
 
-We wont go into details of the active directory setup. you cansee how to make on though by clicking this [link](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-)
+We wont go into details of the active directory setup. you can see how to make on though by clicking this [link](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-)
 
+# Active Directory Domain Join and User Setup
+
+## Domain Join and User Setup
+
+On the Windows Server (ADDC), a new **Organizational Unit (OU)** was created to manage users within the domain `worldline.local`.
+
+Sample user added:
+- **Username:** `ataibi`
+
+On the Windows 10 machine:
+- The PC was joined to the domain via:
+  `System Properties → Change Settings → Domain: worldline.local`
+- Rebooted and logged in as domain user `ataibi`.
+
+This enables centralized identity management and allows user activity to be monitored via the Splunk platform.
+
+## Simulating an RDP Brute-Force Attack
+
+With RDP enabled on `TARGET-PC`, the Kali machine was used to simulate brute-force or unauthorized login attempts using:
+
+```bash
+xfreerdp3 /u:ataibi /p:randompassword /v:192.168.10.100
+```
+
+These failed attempts generate Windows Event ID 4625 (failed login).
+
+On Splunk:
+```spl
+index="endpoint" ataibi
+```
+Apply a time filter of last 15 minutes. You should see failed login logs with details like source IP and timestamp, confirming Splunk's visibility into authentication events.
+
+## Atomic Red Team
+
+To download ART you can follow this [link](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Installing-Invoke-AtomicRedTeam)
+
+Otherwise lets go directly to the simulation
+
+```powershell
+Invoke-AtomicTest T1059.001
+```
+
+Each simulation corresponds to a MITRE ATT&CK technique, helping validate detection coverage. All activity is logged via Sysmon and forwarded to Splunk for analysis.
+
+You can search for relevant events using:
+
+```splunk
+index="endpoint" sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+```
