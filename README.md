@@ -312,7 +312,7 @@ The configuration of Active Directory Domain Services (AD DS) is outside the sco
 On the Windows Server (ADDC), a **Cybersecurity Department** Organizational Unit was created to manage users within the domain `worldline.local`.
 
 Sample users added:
-- **Username:** `ataibi`, `ybouazzaoui`
+- **Usernames:** `ataibi`, `ybouazzaoui`
 
 ![image](/screenshots/orgunit.png)
 
@@ -340,10 +340,14 @@ Let's take another look at Splunk and see if it found any unsuccessful attempts 
 
 On Splunk's search bar:
 ```spl
-index="endpoint" ybouazzaoui
+index="endpoint" ybouazzaoui EventCode=4625
 ```
+![image](/screenshots/splunkresult.png)
 
-Apply a time filter of last 15 minutes. You should see failed login logs with details like source IP and timestamp, confirming Splunk's visibility into authentication events.
+As expected, we found an unsuccessful login attempt for the user `ybouazzaoui`.
+However, if we scroll down, we can find some interesting details about the login attempt.
+
+![image](/screenshots/logindetails.png)
 
 ## Atomic Red Team
 
