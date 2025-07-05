@@ -349,11 +349,20 @@ However, if we scroll down, we can find some interesting details about the login
 
 ![image](/screenshots/logindetails.png)
 
-## Atomic Red Team
+# Atomic Red Team
 
-To download ART you can follow this [link](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Installing-Invoke-AtomicRedTeam)
+**Atomic Red Team (ART)** is an open-source library of tests that simulate adversary behavior mapped to [MITRE ATT&CK](https://attack.mitre.org/) techniques. In this project, ART is used to test whether the SIEM setup can detect specific attack patterns.
 
-Otherwise lets go directly to the simulation
+To begin using Atomic Red Team (ART), the official installation instructions can be found in this [guide](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Installing-Invoke-AtomicRedTeam) provided by Red Canary.
+
+Otherwise, let's get straight to the simulation.
+
+Using the [MITRE ATT&CK Framework](https://attack.mitre.org/) we can find the Techniques id of an attack that we want to simulate
+
+![image](/screenshots/mitreframework.png)
+
+
+
 
 ```powershell
 Invoke-AtomicTest T1059.001
