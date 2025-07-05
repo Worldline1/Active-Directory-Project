@@ -306,3 +306,6 @@ Navigate to Settings -> Indexes and click on **New Index**
 
 We will name it `endpoint` according to the olaf's `inputs.conf` and click **Save**.
 
+![image](/screenshots/endpointindex.png)
+
+
