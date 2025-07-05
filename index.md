@@ -67,18 +67,14 @@ After installing the Ubuntu Server VM, the first step is to assign a **static IP
 To verify the current IP address, let's run:
 
 ```bash
-# bash
 ip a
 ```
 Ubuntu Server 24.04 uses Netplan for network configuration. The typical Netplan config file (/etc/netplan/00-installer-config.yaml) might not exist by default. If it's missing, it will be created manually using the command:
 ```bash
-# bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
 Now let's paste the following configuration to assign a static IP address (192.168.10.10/24) and set the default gateway and DNS:
 ```yaml
-# 00-installer-config.yaml
-# yaml
 network:
   ethernets:
     enp0s3:
@@ -93,7 +89,6 @@ network:
 ```
 We save the file and apply the changes with:
 ```bash
-# bash
 sudo netplan apply
 ```
 The server should now use the static IP 192.168.10.10 on the NAT network. We can check using `ip a`
@@ -122,7 +117,6 @@ Transfer the downloaded `.deb` file to the Ubuntu Server. One way to do this is 
 Install the VirtualBox Guest Additions ISO:
 
 ```bash
-# bash
 sudo apt-get install virtualbox-guest-additions-iso
 ```
 In the VirtualBox menu:
@@ -134,13 +128,11 @@ Go to Devices → Shared Folders → Shared Folder Settings
 
 Back in the terminal:
 ```bash
-# bash
 sudo apt-get install virtualbox-guest-utils
 sudo reboot
 ```
 After rebooting:
 ```bash
-# bash
 sudo adduser <your_username> vboxsf
 mkdir share
 sudo mount -t vboxsf -o uid=1000,gid=1000 <your-shared-folder-name> share/
@@ -150,19 +142,16 @@ cd share
 
 Navigate to the shared folder and run:
 ```bash
-# bash
 sudo dpkg -i splunk-*.deb
 ```
 Then switch to the Splunk directory:
 ```bash
-# bash
 cd /opt/splunk
 sudo -u splunk bash
 cd bin
 ```
 Start Splunk:
 ```bash
-# bash
 ./splunk start
 ```
 > Use Enter or Space to scroll through the license agreement
@@ -173,7 +162,6 @@ Start Splunk:
 
 Exit the Splunk user shell:
 ```bash
-# bash
 exit
 ```
 
@@ -181,7 +169,6 @@ exit
 
 To ensure Splunk runs automatically on server startup, we use the following command:
 ```bash
-# bash
 sudo ./splunk enable boot-start -user splunk
 ```
 Splunk Enterprise is now installed and ready to receive data. The next step is to configure logging on the Windows machines using Sysmon and the Splunk Universal Forwarder.
