@@ -1,4 +1,3 @@
-
 # Introduction
 
 This project simulates a small enterprise network environment focused on cybersecurity monitoring and attack detection.
