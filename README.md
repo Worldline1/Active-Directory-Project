@@ -386,4 +386,10 @@ index="endpoint" powershell bypass
 
 As we can see, there are some logs relating to the simulated attack.
 
+# Conclusion
 
+This project served as a practical simulation of a small enterprise network with a focus on security monitoring, log collection, and attack detection. The setup involved configuring a fully functional Active Directory environment, deploying Splunk as the SIEM, and forwarding logs from Windows endpoints using Sysmon and the Universal Forwarder.
+
+Simulated attacks such as RDP brute-force and MITRE ATT&CK techniques via Atomic Red Team helped validate the logging pipeline and demonstrate how specific behaviors can be captured and analyzed in Splunk. Key event codes, like 4625 for failed logins, were successfully detected, showing that the environment was capable of identifying unauthorized access attempts and other suspicious activity.
+
+This lab lays a solid foundation for understanding how endpoint telemetry, log forwarding, and SIEM analysis come together in a realistic detection engineering workflow. It can easily be extended with dashboards, alerts, or automated responses to further enhance its defensive capabilities.
