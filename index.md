@@ -254,6 +254,45 @@ Then run:
 .\Sysmon64.exe -i sysmonconfig.xml
 ```
 
+### Step 4: Windows Log Forwarding Configuration
 
+To ensure that important security and system events are collected from Windows machines, the **Splunk Universal Forwarder** is configured to monitor the key Windows Event Logs collected from Sysmon.
 
+Open **Notepad as Administrator** and paste the following configuration. Then save the file as `inputs.conf` in: `C:\Program Files\SplunkUniversalForwarder\etc\system\local\`
+```ini
+[WinEventLog://Application]
+index = endpoint
+disabled = false
+
+[WinEventLog://Security]
+index = endpoint
+disabled = false
+
+[WinEventLog://System]
+index = endpoint
+disabled = false
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = endpoint
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+```
+
+These inputs tell the forwarder to:
+
+1. Monitor Application, Security, and System logs (default Windows logs)
+2. Collect Sysmon logs, which provide detailed system activity like process creation and network connections
+3. Send all logs to the Splunk endpoint index
+4. Use XML format for Sysmon logs to preserve full event details
+
+Restart the Splunk UF Service
+
+To apply the changes, restart the Splunk Universal Forwarder service. To do this, type the following command in a Command Prompt shell:
+
+```cmd
+net stop splunkforwarder && net start splunkforwarder
+```
+
+This will stop and start the service, applying the new log forwarding configuration.
 
