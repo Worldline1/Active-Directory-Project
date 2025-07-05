@@ -288,6 +288,8 @@ We will name it `endpoint` as per Olaf's `inputs.conf` and click **Save**.
 
 > To start receiving logs, a port forwarding shall be set up. To do this, we go to **Settings > Forwarding and Receiving**. Click on **Configure Receiving** and then **New Receiving Port**. Then type **9997** and click **Save**.
 
+![gif](/screeshots/demo.gif)
+
     The configurations should be done by now. To test them, let's go to the **Apps** menu and select **Search & Reporting**.
 
     Type 'index="endpoint"' into the search bar and press the search icon.
