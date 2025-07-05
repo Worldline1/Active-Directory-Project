@@ -300,12 +300,22 @@ Now that our configuration are all set lets hop into a browser and access our sp
 
 Input your creds and an interface like this should show up: 
 
-![SPLUNK-INT](/screenshots/splunk-interface.png)
+![image](/screenshots/splunk-interface.png)
 
 Navigate to Settings -> Indexes and click on **New Index**
 
 We will name it `endpoint` according to the olaf's `inputs.conf` and click **Save**.
 
 ![image](/screenshots/endpointindex.png)
+
+Now navigate to settings -> forwarding and receiving, click on Configure Receiving > New receiving port > type `9997` and Save
+
+1.The configurations should be done by now. To test them though lets go to Apps > Search & reporting
+2. on the search bar type `index="endpoint"` and hit search
+
+If all steps before done correctly we hould be able to see some events like the next picture
+
+![image](/screeenshots/endpointsearch.png)
+
 
 
