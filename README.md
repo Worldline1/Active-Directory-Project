@@ -318,8 +318,8 @@ Sample user added:
 
 On the Windows 10 machine:
 - The PC was joined to the domain via:
-  `System Properties → Change Settings → Domain: worldline.local`
-- Rebooted and logged in as domain user `ataibi`.
+  `System Properties → Computer Name/Domain Changes → Domain: worldline.local`
+- Rebooted and logged in as domain user `ybouazzaoui`.
 
 This enables centralized identity management and allows user activity to be monitored via the Splunk platform.
 
