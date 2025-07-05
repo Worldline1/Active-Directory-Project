@@ -293,7 +293,7 @@ To start receiving logs, a port forwarding shall be set up. To do this, we go to
 
 The configurations should be done by now. To test them, let's go to the **Apps** menu and select **Search & Reporting**.
 
-Type 'index="endpoint"' into the search bar and press the search icon.
+Type `index="endpoint"` into the search bar and press the search icon.
 
 If all the steps are done correctly, some events like the ones shown below will be displayed.
 
