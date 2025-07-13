@@ -1,8 +1,0 @@
-title: Active Directory Project
-description: "In this project, a virtualized enterprise network is simulated using four machines: a Splunk SIEM server on Ubuntu, a domain controller on Windows Server 2022, a domain-joined Windows 10 endpoint, and a Kali Linux attack machine. The goal is to monitor and analyze security events across the environment using Splunk Enterprise, Sysmon, and the Splunk Universal Forwarder. Atomic Red Team is used to simulate adversary techniques on the Windows endpoint, helping identify detection gaps and improve visibility. This setup demonstrates a realistic Active Directory environment focused on log collection, attack simulation, and detection engineering."
-show_downloads: true
-google_analytics:
-theme: jekyll-theme-hacker
-remote_theme: pages-themes/hacker@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
